@@ -2,7 +2,7 @@
 
 need to setup virtual enviroment (venv) manually using https://www.python.org/downloads/release/python-3913/ (python 3.9 64bit)
 
-in cmd: ~\~..python39xx\Python.exe -m venv venv
+in cmd: ~/~..python39xx/Python.exe -m venv venv
 
 then inside venv:
   pip3 install torch torchvision torchaudio
