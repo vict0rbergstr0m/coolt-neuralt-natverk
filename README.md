@@ -1,6 +1,6 @@
 # coolt-neuralt-natverk
 
-need to setup venv manually using https://www.python.org/downloads/release/python-3913/ (python 3.9)
+need to setup venv manually using https://www.python.org/downloads/release/python-3913/ (python 3.9 64bit)
 
 then inside venv:
   pip3 install torch torchvision torchaudio
