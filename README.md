@@ -1,6 +1,8 @@
 # coolt-neuralt-natverk
 
-need to setup venv manually using https://www.python.org/downloads/release/python-3913/ (python 3.9 64bit)
+need to setup virtual enviroment (venv) manually using https://www.python.org/downloads/release/python-3913/ (python 3.9 64bit)
+
+in cmd: ~\~..python39xx\Python.exe -m venv venv
 
 then inside venv:
   pip3 install torch torchvision torchaudio
@@ -9,6 +11,8 @@ then inside venv:
 
   verify with: mlagents-learn --help
 
+
+simple tutorial: https://www.youtube.com/watch?v=zPFU30tbyKs&ab_channel=CodeMonkey
 
 @article{juliani2020,
   title={Unity: A general platform for intelligent agents},
