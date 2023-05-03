@@ -28,7 +28,7 @@ probably need to downgrade protobuff with pip: pip install protobuf==3.20
 
 simple tutorial: https://www.youtube.com/watch?v=zPFU30tbyKs&ab_channel=CodeMonkey
 
-In unity before training:
+In unity before training (if you're just testing an already trained model dont do this):
 mlagents-learn --run-id=nameOfChoice
 
 To plot results:
