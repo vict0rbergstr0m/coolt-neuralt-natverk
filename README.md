@@ -23,6 +23,7 @@ then inside venv:
 
 probably  need to downgrade protobuff with pip pip install protobuf==3.20
 
+might have to install pip install onnx aswell not sure.
 
 simple tutorial: https://www.youtube.com/watch?v=zPFU30tbyKs&ab_channel=CodeMonkey
 
