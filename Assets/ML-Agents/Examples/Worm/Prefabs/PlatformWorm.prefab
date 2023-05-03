@@ -9,6 +9,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7430253518223459941, guid: ff2999c8614d848f8a7e55e3a6fb9282,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 11400000, guid: 8054f1f2104283d4e85aec74e0612c9e,
+        type: 3}
+    - target: {fileID: 7430253518223459941, guid: ff2999c8614d848f8a7e55e3a6fb9282,
+        type: 3}
       propertyPath: m_InferenceDevice
       value: 1
       objectReference: {fileID: 0}
