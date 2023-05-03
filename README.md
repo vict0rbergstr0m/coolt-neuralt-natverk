@@ -27,6 +27,13 @@ probably need to downgrade protobuff with pip pip install protobuf==3.20
 
 simple tutorial: https://www.youtube.com/watch?v=zPFU30tbyKs&ab_channel=CodeMonkey
 
+In unity before training:
+mlagents-learn --run-id=nameOfThing
+
+To plot results:
+tensorboard --logdir results
+
+
 @article{juliani2020,
   title={Unity: A general platform for intelligent agents},
   author={Juliani, Arthur and Berges, Vincent-Pierre and Teng, Ervin and Cohen, Andrew and Harper, Jonathan and Elion, Chris and Goy, Chris and Gao, Yuan and Henry, Hunter and Mattar, Marwan and Lange, Danny},
