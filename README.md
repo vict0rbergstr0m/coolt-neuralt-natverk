@@ -3,6 +3,7 @@ Unity 2021.3.22f1 LTS
 (install unity hub, then install 2021.3....)
 
 need to setup virtual enviroment (venv) manually using https://www.python.org/downloads/release/python-3913/ (python 3.9 64bit)
+OBS: MÅSTE VARA 3.9! du kan ha mer än en version installerad samtidigt så det borde inte fucka nått annat.
 
 in cmd: 
 
