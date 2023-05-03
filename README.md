@@ -10,7 +10,7 @@ cd C:\...\coolt-neuralt-natverk
 
 ../..python39xx/Python.exe -m venv venv
 
-cd C:\...\coolt-neuralt-natverk\...venv\Scripts\
+cd C:\...\coolt-neuralt-natverk...\venv\Scripts\
 
 activate
 
