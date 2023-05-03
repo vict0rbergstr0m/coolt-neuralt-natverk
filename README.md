@@ -28,8 +28,9 @@ probably need to downgrade protobuff with pip: pip install protobuf==3.20
 
 simple tutorial: https://www.youtube.com/watch?v=zPFU30tbyKs&ab_channel=CodeMonkey
 
-In cmd venv before training and running play in unity (if you're just testing an already trained model dont do this):
-mlagents-learn --run-id=nameOfChoice
+In cmd venv before training and running play in unity: mlagents-learn --run-id=nameOfChoice
+(if you're just testing an already trained model dont do this)
+
 
 To plot results:
 tensorboard --logdir results
