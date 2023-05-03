@@ -15,7 +15,7 @@ cd C:\...\coolt-neuralt-natverk...\venv\Scripts\
 activate
 
 then inside venv:
-  pip3 install torch torchvision torchaudio
+  pip3 install torch torchvision torchaudio //eller installera med cuda (jag körde v11.8) om du kan och fattar vad det innebär
 
   pip install mlagents
 
