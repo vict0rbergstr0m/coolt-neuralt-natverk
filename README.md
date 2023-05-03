@@ -23,7 +23,7 @@ then inside venv:
 
   verify with: mlagents-learn --help
 
-probably need to downgrade protobuff with pip pip install protobuf==3.20
+probably need to downgrade protobuff with pip: pip install protobuf==3.20
 
 simple tutorial: https://www.youtube.com/watch?v=zPFU30tbyKs&ab_channel=CodeMonkey
 
