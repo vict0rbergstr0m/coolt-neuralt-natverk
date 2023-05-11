@@ -22,6 +22,7 @@ public class PlaygroundGenerator : MonoBehaviour
             obj.transform.SetParent(transform);
             Vector3 pos = new Vector3(Random.Range(-arenaDimensions.x,arenaDimensions.x)/2,Random.Range(-arenaDimensions.y,arenaDimensions.y)/2,Random.Range(-arenaDimensions.z,arenaDimensions.z)/2);
             obj.transform.localPosition = pos;
+            obj.transform.eulerAngles += Vector3.up * Random.Range(0,360.0f);
         }
     }
 }
