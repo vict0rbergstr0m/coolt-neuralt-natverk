@@ -1,5 +1,5 @@
 # coolt-neuralt-natverk
-Unity 2021.3.22f1 LTS
+Unity 2021.3.XXXX LTS
 (install unity hub, then install 2021.3....)
 
 need to setup virtual enviroment (venv) manually using https://www.python.org/downloads/release/python-3913/ (python 3.9 64bit)
