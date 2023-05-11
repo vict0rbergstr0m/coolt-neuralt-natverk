@@ -1,4 +1,66 @@
 {
+    "TagHunter": {
+        "checkpoints": [
+            {
+                "steps": 499983,
+                "file_path": "results\\tagTest1\\TagHunter\\TagHunter-499983.onnx",
+                "reward": 6.286455209923799,
+                "creation_time": 1683832220.1165411,
+                "auxillary_file_paths": [
+                    "results\\tagTest1\\TagHunter\\TagHunter-499983.pt"
+                ]
+            },
+            {
+                "steps": 500047,
+                "file_path": "results\\tagTest1\\TagHunter\\TagHunter-500047.onnx",
+                "reward": 6.286455209923799,
+                "creation_time": 1683832220.5068765,
+                "auxillary_file_paths": [
+                    "results\\tagTest1\\TagHunter\\TagHunter-500047.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500047,
+            "file_path": "results\\tagTest1\\TagHunter.onnx",
+            "reward": 6.286455209923799,
+            "creation_time": 1683832220.5068765,
+            "auxillary_file_paths": [
+                "results\\tagTest1\\TagHunter\\TagHunter-500047.pt"
+            ]
+        }
+    },
+    "TagPrey": {
+        "checkpoints": [
+            {
+                "steps": 499983,
+                "file_path": "results\\tagTest1\\TagPrey\\TagPrey-499983.onnx",
+                "reward": -6.26645517601538,
+                "creation_time": 1683832220.3242195,
+                "auxillary_file_paths": [
+                    "results\\tagTest1\\TagPrey\\TagPrey-499983.pt"
+                ]
+            },
+            {
+                "steps": 500047,
+                "file_path": "results\\tagTest1\\TagPrey\\TagPrey-500047.onnx",
+                "reward": -6.26645517601538,
+                "creation_time": 1683832220.6905336,
+                "auxillary_file_paths": [
+                    "results\\tagTest1\\TagPrey\\TagPrey-500047.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500047,
+            "file_path": "results\\tagTest1\\TagPrey.onnx",
+            "reward": -6.26645517601538,
+            "creation_time": 1683832220.6905336,
+            "auxillary_file_paths": [
+                "results\\tagTest1\\TagPrey\\TagPrey-500047.pt"
+            ]
+        }
+    },
     "metadata": {
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.30.0",

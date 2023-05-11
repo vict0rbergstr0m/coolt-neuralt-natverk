@@ -11,11 +11,13 @@ public class TagPreyAgent : Agent
     [SerializeField]
     private Transform target;
     public Rigidbody rigid;
-    public Vector3 startPosition = new Vector3(-0.25f,0,0);
+    public Vector3 startArea = new Vector3(20f,0,20f);
 
     public override void OnEpisodeBegin()
     {
-        transform.localPosition = startPosition;
+        //TODO: the position should be set by playground generator, when setting position make sure you are not ontop of obstacle or other agent
+        Vector3 pos = new Vector3(Random.Range(-startArea.x,startArea.x)/2,Random.Range(-startArea.y,startArea.y)/2,Random.Range(-startArea.z,startArea.z)/2);
+        transform.localPosition = pos;
     }
     
     public override void CollectObservations(VectorSensor sensor)
@@ -29,7 +31,7 @@ public class TagPreyAgent : Agent
         float moveX = actions.ContinuousActions[0];
         float moveY = actions.ContinuousActions[1];
 
-        Vector3 velocity = new Vector3(moveX,0,moveY) * 6;
+        Vector3 velocity = new Vector3(moveX,0,moveY) * 6; //TODO: make this smoother somhow? add force maybe. need fixed update then? should probably use fixed update for velocity either way
         rigid.velocity = velocity;
 
         AddReward(Time.deltaTime);
