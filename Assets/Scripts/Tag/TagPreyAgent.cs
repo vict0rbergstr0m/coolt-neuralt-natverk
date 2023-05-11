@@ -22,6 +22,8 @@ public class TagPreyAgent : Agent
     
     public override void CollectObservations(VectorSensor sensor)
     {
+        //TODO: more visual input, raycasts/spheracasts in a cricle around player, or just infront 30* fov e.g.?
+        //TODO: should they always know position of opponent? maybe each raycast returns 1 if wall, 2 if enemy 0 if nothing and distance aswell?
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(target.localPosition);
     }
@@ -30,6 +32,9 @@ public class TagPreyAgent : Agent
     {
         float moveX = actions.ContinuousActions[0];
         float moveY = actions.ContinuousActions[1];
+
+        //TODO: the agent class should work as a input class, then we pass all the inputs to a "agentController" that has a constant fixed update loop
+        //i dont think this function runs every frame, i do not know the exact intervall either.
 
         Vector3 velocity = new Vector3(moveX,0,moveY) * 6; //TODO: make this smoother somhow? add force maybe. need fixed update then? should probably use fixed update for velocity either way
         rigid.velocity = velocity;
