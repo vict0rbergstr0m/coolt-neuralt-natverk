@@ -11,6 +11,7 @@ public class TagHunterAgent : Agent
     [SerializeField]
     private Transform target;
     
+    public Rigidbody rigid;
     public Vector3 startPosition = new Vector3(-0.25f,0,0);
 
     public override void OnEpisodeBegin()
@@ -29,10 +30,12 @@ public class TagHunterAgent : Agent
         float moveX = actions.ContinuousActions[0];
         float moveY = actions.ContinuousActions[1];
 
-        transform.localPosition += new Vector3(moveX,0,moveY) *Time.deltaTime * 5;
+        Vector3 velocity = new Vector3(moveX,0,moveY) * 5;
+        rigid.velocity = velocity;
 
-        if(Vector3.SqrMagnitude(target.localPosition-transform.localPosition) < 1)
+        if(Vector3.SqrMagnitude(target.localPosition-transform.localPosition) < 2*2)
         {
+            target.gameObject.SendMessage("OnReachedTarget"); //TODO: SendMessage is terrible, fix this later, should probably have reference to prey/hunter agent
             OnReachedTarget();
         }
 
@@ -50,6 +53,7 @@ public class TagHunterAgent : Agent
 
     void OnReachedTarget()
     {
+        Debug.Log("won!", this);
         AddReward(10f);
         EndEpisode();
     }

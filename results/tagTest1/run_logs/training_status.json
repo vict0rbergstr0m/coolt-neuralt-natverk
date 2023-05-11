@@ -1,48 +1,4 @@
 {
-    "TagPrey": {
-        "checkpoints": [
-            {
-                "steps": 8482,
-                "file_path": "results\\tagTest1\\TagPrey\\TagPrey-8482.onnx",
-                "reward": 161.5449901819229,
-                "creation_time": 1683826383.7553139,
-                "auxillary_file_paths": [
-                    "results\\tagTest1\\TagPrey\\TagPrey-8482.pt"
-                ]
-            }
-        ],
-        "final_checkpoint": {
-            "steps": 8482,
-            "file_path": "results\\tagTest1\\TagPrey.onnx",
-            "reward": 161.5449901819229,
-            "creation_time": 1683826383.7553139,
-            "auxillary_file_paths": [
-                "results\\tagTest1\\TagPrey\\TagPrey-8482.pt"
-            ]
-        }
-    },
-    "TagHunter": {
-        "checkpoints": [
-            {
-                "steps": 8423,
-                "file_path": "results\\tagTest1\\TagHunter\\TagHunter-8423.onnx",
-                "reward": -166.46998977661133,
-                "creation_time": 1683826383.9399724,
-                "auxillary_file_paths": [
-                    "results\\tagTest1\\TagHunter\\TagHunter-8423.pt"
-                ]
-            }
-        ],
-        "final_checkpoint": {
-            "steps": 8423,
-            "file_path": "results\\tagTest1\\TagHunter.onnx",
-            "reward": -166.46998977661133,
-            "creation_time": 1683826383.9399724,
-            "auxillary_file_paths": [
-                "results\\tagTest1\\TagHunter\\TagHunter-8423.pt"
-            ]
-        }
-    },
     "metadata": {
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.30.0",

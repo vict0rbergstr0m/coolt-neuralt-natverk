@@ -431,6 +431,8 @@ GameObject:
   - component: {fileID: 7615357618512714025}
   - component: {fileID: 7519100341737420220}
   - component: {fileID: 6017440995819356028}
+  - component: {fileID: 6368940787609411940}
+  - component: {fileID: 8723046098862435616}
   m_Layer: 0
   m_Name: Prey
   m_TagString: Untagged
@@ -501,6 +503,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 10000
   target: {fileID: 0}
+  rigid: {fileID: 8723046098862435616}
   startPosition: {x: -5, y: 0, z: 0}
 --- !u!114 &6017440995819356028
 MonoBehaviour:
@@ -516,3 +519,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!65 &6368940787609411940
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149086401057951909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!54 &8723046098862435616
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149086401057951909}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0

@@ -10,7 +10,7 @@ public class TagPreyAgent : Agent
 
     [SerializeField]
     private Transform target;
-    
+    public Rigidbody rigid;
     public Vector3 startPosition = new Vector3(-0.25f,0,0);
 
     public override void OnEpisodeBegin()
@@ -29,13 +29,8 @@ public class TagPreyAgent : Agent
         float moveX = actions.ContinuousActions[0];
         float moveY = actions.ContinuousActions[1];
 
-        transform.localPosition += new Vector3(moveX,0,moveY) *Time.deltaTime * 6;
-
-        if(Vector3.SqrMagnitude(target.localPosition-transform.localPosition) < 1)
-        {
-            OnReachedTarget();
-        }
-
+        Vector3 velocity = new Vector3(moveX,0,moveY) * 6;
+        rigid.velocity = velocity;
 
         AddReward(Time.deltaTime);
 
@@ -52,6 +47,7 @@ public class TagPreyAgent : Agent
 
     void OnReachedTarget()
     {
+        Debug.Log("lost!", this);
         AddReward(-10f);
         EndEpisode();
     }
