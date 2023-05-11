@@ -29,18 +29,14 @@ public class TagHunterAgent : Agent
         float moveX = actions.ContinuousActions[0];
         float moveY = actions.ContinuousActions[1];
 
-        transform.localPosition += new Vector3(moveX,0,moveY) *Time.deltaTime * 10;
+        transform.localPosition += new Vector3(moveX,0,moveY) *Time.deltaTime * 5;
 
         if(Vector3.SqrMagnitude(target.localPosition-transform.localPosition) < 1)
         {
             OnReachedTarget();
         }
 
-        if(!Physics.Raycast(transform.localPosition, Vector3.down))
-        {
-            OnLeftArena();
-        }
-
+        AddReward(-Time.deltaTime);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -52,15 +48,9 @@ public class TagHunterAgent : Agent
         //....
     }
 
-    void OnLeftArena()
-    {
-        AddReward(-1f);
-        EndEpisode();
-    }
-
     void OnReachedTarget()
     {
-        AddReward(1f);
+        AddReward(10f);
         EndEpisode();
     }
 
