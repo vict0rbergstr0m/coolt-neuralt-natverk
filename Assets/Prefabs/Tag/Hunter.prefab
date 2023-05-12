@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1379810529200516427}
   - component: {fileID: 5713397999182496167}
   - component: {fileID: 4189504574316495692}
+  - component: {fileID: 5160989014338681570}
   - component: {fileID: 7928203131189254485}
   - component: {fileID: 4800028034871207296}
   m_Layer: 0
@@ -83,9 +84,8 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 10000
-  target: {fileID: 0}
-  rigid: {fileID: 4800028034871207296}
-  startPosition: {x: 5, y: 0, z: 0}
+  startArea: {x: 20, y: 0, z: 20}
+  movement: {fileID: 5160989014338681570}
 --- !u!114 &4189504574316495692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +100,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &5160989014338681570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555653034419807178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52bc2d7d06a16d347b4e799f5b08bae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 4800028034871207296}
+  moveSpeed: 5
+  moveForce: 1000
+  rotateSpeed: 10
+  rotateForce: 200
+  rotateDamping: 0.5
+  targetAngleVel: 0
 --- !u!65 &7928203131189254485
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -123,11 +142,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &5333313457561009060
 GameObject:
