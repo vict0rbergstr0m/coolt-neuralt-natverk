@@ -4,10 +4,24 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
+using Unity.MLAgents.Policies;
 
 public abstract class TagAgent : Agent
 {
+
+    struct RayDetector
+    {
+        public int objectId; //-1 is wall, 0,1,2... is agent teams
+        public float distance;
+    }
+
+    public int teamId = 0;
+    [SerializeField] private LayerMask visionMask;
     [SerializeField] private Vector3 startArea = new Vector3(20f,0,20f);
+    [SerializeField] private float fov = 90;
+    [SerializeField] private int rayCount = 15;
+    [SerializeField] private float visionDistance = 10;
+
     public TagAgentMovement movement;
 
     public override void OnEpisodeBegin()
@@ -19,9 +33,42 @@ public abstract class TagAgent : Agent
     
     public override void CollectObservations(VectorSensor sensor)
     {
-        //TODO: more visual input, raycasts/spheracasts in a cricle around player, or just infront 30* fov e.g.?
-        //TODO: should they always know position of opponent? maybe each raycast returns 1 if wall, 2 if enemy 0 if nothing and distance aswell?
+        for(int i = 0; i < rayCount; i++)
+        {
+            float p = 0.5f;
+            if(rayCount != 1)
+            {
+                p = (float)(i)/(float)(rayCount-1);
+            }
+            Vector3 origin = transform.position + Vector3.up * 0.5f;
+            Vector3 dir = Quaternion.AngleAxis(fov*p-(fov/2), Vector3.up) * transform.forward;
+            RayDetector detected = shotDetector(origin, dir);
+            sensor.AddObservation(detected.distance);
+            sensor.AddObservation(detected.objectId);
+        }
+        
+    }
 
+    //could use capsule cast instead of ray?
+    RayDetector shotDetector(Vector3 origin, Vector3 direction)
+    {
+        RaycastHit hit = new RaycastHit();
+        Physics.Raycast(origin,direction, out hit, visionDistance,visionMask); 
+        RayDetector detector = new RayDetector();
+        detector.objectId = -1;
+        detector.distance = 10;
+        TagAgent agent;
+        if(hit.transform != null)
+        {
+            if(hit.transform.TryGetComponent<TagAgent>(out agent))
+            {
+                detector.objectId = agent.teamId;
+            }
+
+            detector.distance = Vector3.Magnitude(origin-hit.point);
+        }
+        Debug.DrawRay(origin, direction*detector.distance,Color.red);
+        return detector;
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)

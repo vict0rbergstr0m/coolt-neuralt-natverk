@@ -84,7 +84,14 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 10000
+  teamId: 1
+  visionMask:
+    serializedVersion: 2
+    m_Bits: 1
   startArea: {x: 20, y: 0, z: 20}
+  fov: 90
+  rayCount: 15
+  visionDistance: 10
   movement: {fileID: 5160989014338681570}
 --- !u!114 &4189504574316495692
 MonoBehaviour:
