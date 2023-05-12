@@ -1,0 +1,69 @@
+{
+    "TagPrey": {
+        "checkpoints": [
+            {
+                "steps": 249969,
+                "file_path": "results\\firstRealTest_1\\TagPrey\\TagPrey-249969.onnx",
+                "reward": null,
+                "creation_time": 1683931044.863407,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagPrey\\TagPrey-249969.pt"
+                ]
+            },
+            {
+                "steps": 361715,
+                "file_path": "results\\firstRealTest_1\\TagPrey\\TagPrey-361715.onnx",
+                "reward": null,
+                "creation_time": 1683931189.4434886,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagPrey\\TagPrey-361715.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 361715,
+            "file_path": "results\\firstRealTest_1\\TagPrey.onnx",
+            "reward": null,
+            "creation_time": 1683931189.4434886,
+            "auxillary_file_paths": [
+                "results\\firstRealTest_1\\TagPrey\\TagPrey-361715.pt"
+            ]
+        }
+    },
+    "TagHunter": {
+        "checkpoints": [
+            {
+                "steps": 249997,
+                "file_path": "results\\firstRealTest_1\\TagHunter\\TagHunter-249997.onnx",
+                "reward": -199.919988155365,
+                "creation_time": 1683931045.1231298,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagHunter\\TagHunter-249997.pt"
+                ]
+            },
+            {
+                "steps": 361689,
+                "file_path": "results\\firstRealTest_1\\TagHunter\\TagHunter-361689.onnx",
+                "reward": -2.0799968242645264,
+                "creation_time": 1683931189.6666803,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagHunter\\TagHunter-361689.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 361689,
+            "file_path": "results\\firstRealTest_1\\TagHunter.onnx",
+            "reward": -2.0799968242645264,
+            "creation_time": 1683931189.6666803,
+            "auxillary_file_paths": [
+                "results\\firstRealTest_1\\TagHunter\\TagHunter-361689.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.0.0+cu118"
+    }
+}

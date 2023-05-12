@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 276146244}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 365010360}
   m_Layer: 0
   m_Name: WallW
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 589826951}
   m_Layer: 0
   m_Name: WallN
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 873756007}
   m_Layer: 0
   m_Name: WallS
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 1618468246}
   m_Layer: 0
   m_Name: WallE
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1107,22 +1107,22 @@ PrefabInstance:
     - target: {fileID: 4606320517273161061, guid: df960e8418ab9544c8fe428f3a4f1cde,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606320517273161061, guid: df960e8418ab9544c8fe428f3a4f1cde,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606320517273161061, guid: df960e8418ab9544c8fe428f3a4f1cde,
-        type: 3}
-      propertyPath: m_LocalRotation.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4606320517273161061, guid: df960e8418ab9544c8fe428f3a4f1cde,
         type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606320517273161061, guid: df960e8418ab9544c8fe428f3a4f1cde,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606320517273161061, guid: df960e8418ab9544c8fe428f3a4f1cde,
+        type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4606320517273161061, guid: df960e8418ab9544c8fe428f3a4f1cde,
         type: 3}
@@ -1132,7 +1132,7 @@ PrefabInstance:
     - target: {fileID: 4606320517273161061, guid: df960e8418ab9544c8fe428f3a4f1cde,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4606320517273161061, guid: df960e8418ab9544c8fe428f3a4f1cde,
         type: 3}

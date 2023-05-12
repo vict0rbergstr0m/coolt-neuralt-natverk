@@ -16,5 +16,28 @@ public class TagPreyAgent : TagAgent
         movement.SetTargetMovement(velocity);
 
         movement.setTargetAngleVel(moveX);
+        AddReward(Time.deltaTime);
     }
+
+    private void OnCollisionEnter(Collision other) 
+    {
+        if(other.gameObject.tag == "obstacle")//if obstacle/dosnt contain rigidbody kill this
+        {
+            OnHitWall();
+        }
+    }
+
+    public void OnGotCaught()
+    {
+        if(endEpisode)
+        {
+            return;
+        }
+
+        ClearDetections();
+        Debug.Log("Lost!", this);
+        AddReward(-200f);
+        RecursionSafeEndEpisode();
+    }
+
 }

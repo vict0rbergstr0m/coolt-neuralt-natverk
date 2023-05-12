@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 30
+    VectorObservationSize: 50
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
@@ -509,8 +509,8 @@ MonoBehaviour:
     m_Bits: 1
   startArea: {x: 20, y: 0, z: 20}
   fov: 90
-  rayCount: 15
-  visionDistance: 10
+  rayCount: 25
+  visionDistance: 20
   movement: {fileID: 380448172232886449}
 --- !u!114 &6017440995819356028
 MonoBehaviour:

@@ -9,10 +9,11 @@ using Unity.MLAgents.Policies;
 public abstract class TagAgent : Agent
 {
 
-    struct RayDetector
+    public struct RayDetector
     {
         public int objectId; //-1 is wall, 0,1,2... is agent teams
         public float distance;
+        public Transform hit;
     }
 
     public int teamId = 0;
@@ -25,11 +26,21 @@ public abstract class TagAgent : Agent
 
     public TagAgentMovement movement;
 
+    public RayDetector[] detections {get; private set;}
+
+    public void ClearDetections()
+    {
+        detections = new RayDetector[rayCount];
+    }
+
     public override void OnEpisodeBegin()
     {
         //TODO: the position should be set by playground generator, when setting position make sure you are not ontop of obstacle or other agent
         Vector3 pos = new Vector3(Random.Range(-startArea.x,startArea.x)/2,Random.Range(-startArea.y,startArea.y)/2,Random.Range(-startArea.z,startArea.z)/2);
         transform.localPosition = pos;
+        
+        endEpisode = false;
+        ClearDetections();
     }
     
     public override void CollectObservations(VectorSensor sensor)
@@ -46,9 +57,18 @@ public abstract class TagAgent : Agent
             RayDetector detected = shotDetector(origin, dir);
             sensor.AddObservation(detected.distance);
             sensor.AddObservation(detected.objectId);
+            detections[i] = detected;
         }
-        
+
+        if(endEpisode)
+        {
+            return;
+        }
+        OnObservation();
     }
+
+    public virtual void OnObservation(){}
+
 
     //could use capsule cast instead of ray?
     RayDetector shotDetector(Vector3 origin, Vector3 direction)
@@ -57,18 +77,20 @@ public abstract class TagAgent : Agent
         Physics.Raycast(origin,direction, out hit, visionDistance,visionMask); 
         RayDetector detector = new RayDetector();
         detector.objectId = -1;
-        detector.distance = 10;
+        detector.distance = visionDistance;
         TagAgent agent;
+        Debug.DrawRay(origin, direction*detector.distance,Color.red);
         if(hit.transform != null)
         {
+            detector.distance = Vector3.Magnitude(origin-hit.point);
+            detector.hit = hit.transform;
+            Debug.DrawRay(origin, direction*detector.distance,Color.green);
             if(hit.transform.TryGetComponent<TagAgent>(out agent))
             {
+                Debug.DrawRay(origin, direction*detector.distance,Color.blue);
                 detector.objectId = agent.teamId;
             }
-
-            detector.distance = Vector3.Magnitude(origin-hit.point);
         }
-        Debug.DrawRay(origin, direction*detector.distance,Color.red);
         return detector;
     }
 
@@ -82,6 +104,26 @@ public abstract class TagAgent : Agent
         continousActions[0] = Input.GetKey("a")?1:0;
         continousActions[1] = Input.GetKey("w")?1:0;
 
+    }
+
+    void Update() {
+        if(endEpisode)
+        {
+            EndEpisode();
+        }
+    }
+
+    public bool endEpisode {get; private set;} = false;
+    public void RecursionSafeEndEpisode()
+    {
+        endEpisode = true;
+    }
+
+    public void OnHitWall()
+    {
+        Debug.Log("Ouch! hit wall.", this);
+        AddReward(-200f);
+        EndEpisode();
     }
 
 }
