@@ -1,63 +1,117 @@
 {
-    "TagPrey": {
-        "checkpoints": [
-            {
-                "steps": 249969,
-                "file_path": "results\\firstRealTest_1\\TagPrey\\TagPrey-249969.onnx",
-                "reward": null,
-                "creation_time": 1683931044.863407,
-                "auxillary_file_paths": [
-                    "results\\firstRealTest_1\\TagPrey\\TagPrey-249969.pt"
-                ]
-            },
-            {
-                "steps": 361715,
-                "file_path": "results\\firstRealTest_1\\TagPrey\\TagPrey-361715.onnx",
-                "reward": null,
-                "creation_time": 1683931189.4434886,
-                "auxillary_file_paths": [
-                    "results\\firstRealTest_1\\TagPrey\\TagPrey-361715.pt"
-                ]
-            }
-        ],
-        "final_checkpoint": {
-            "steps": 361715,
-            "file_path": "results\\firstRealTest_1\\TagPrey.onnx",
-            "reward": null,
-            "creation_time": 1683931189.4434886,
-            "auxillary_file_paths": [
-                "results\\firstRealTest_1\\TagPrey\\TagPrey-361715.pt"
-            ]
-        }
-    },
     "TagHunter": {
         "checkpoints": [
             {
-                "steps": 249997,
-                "file_path": "results\\firstRealTest_1\\TagHunter\\TagHunter-249997.onnx",
-                "reward": -199.919988155365,
-                "creation_time": 1683931045.1231298,
+                "steps": 1749968,
+                "file_path": "results\\firstRealTest_1\\TagHunter\\TagHunter-1749968.onnx",
+                "reward": 107.9781739061529,
+                "creation_time": 1683966428.41648,
                 "auxillary_file_paths": [
-                    "results\\firstRealTest_1\\TagHunter\\TagHunter-249997.pt"
+                    "results\\firstRealTest_1\\TagHunter\\TagHunter-1749968.pt"
                 ]
             },
             {
-                "steps": 361689,
-                "file_path": "results\\firstRealTest_1\\TagHunter\\TagHunter-361689.onnx",
-                "reward": -2.0799968242645264,
-                "creation_time": 1683931189.6666803,
+                "steps": 1999937,
+                "file_path": "results\\firstRealTest_1\\TagHunter\\TagHunter-1999937.onnx",
+                "reward": 150.48726521364668,
+                "creation_time": 1683966760.844543,
                 "auxillary_file_paths": [
-                    "results\\firstRealTest_1\\TagHunter\\TagHunter-361689.pt"
+                    "results\\firstRealTest_1\\TagHunter\\TagHunter-1999937.pt"
+                ]
+            },
+            {
+                "steps": 2249952,
+                "file_path": "results\\firstRealTest_1\\TagHunter\\TagHunter-2249952.onnx",
+                "reward": 137.18868413178816,
+                "creation_time": 1683967100.889649,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagHunter\\TagHunter-2249952.pt"
+                ]
+            },
+            {
+                "steps": 2499982,
+                "file_path": "results\\firstRealTest_1\\TagHunter\\TagHunter-2499982.onnx",
+                "reward": 131.4799908399582,
+                "creation_time": 1683967439.61312,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagHunter\\TagHunter-2499982.pt"
+                ]
+            },
+            {
+                "steps": 2500046,
+                "file_path": "results\\firstRealTest_1\\TagHunter\\TagHunter-2500046.onnx",
+                "reward": 131.4799908399582,
+                "creation_time": 1683967440.0459921,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagHunter\\TagHunter-2500046.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 361689,
+            "steps": 2500046,
             "file_path": "results\\firstRealTest_1\\TagHunter.onnx",
-            "reward": -2.0799968242645264,
-            "creation_time": 1683931189.6666803,
+            "reward": 131.4799908399582,
+            "creation_time": 1683967440.0459921,
             "auxillary_file_paths": [
-                "results\\firstRealTest_1\\TagHunter\\TagHunter-361689.pt"
+                "results\\firstRealTest_1\\TagHunter\\TagHunter-2500046.pt"
+            ]
+        }
+    },
+    "TagPrey": {
+        "checkpoints": [
+            {
+                "steps": 1749968,
+                "file_path": "results\\firstRealTest_1\\TagPrey\\TagPrey-1749968.onnx",
+                "reward": -108.8581673448736,
+                "creation_time": 1683966428.6486797,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagPrey\\TagPrey-1749968.pt"
+                ]
+            },
+            {
+                "steps": 1999937,
+                "file_path": "results\\firstRealTest_1\\TagPrey\\TagPrey-1999937.onnx",
+                "reward": -159.76085416130397,
+                "creation_time": 1683966761.080746,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagPrey\\TagPrey-1999937.pt"
+                ]
+            },
+            {
+                "steps": 2249955,
+                "file_path": "results\\firstRealTest_1\\TagPrey\\TagPrey-2249955.onnx",
+                "reward": -164.31270599365234,
+                "creation_time": 1683967101.1383626,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagPrey\\TagPrey-2249955.pt"
+                ]
+            },
+            {
+                "steps": 2499982,
+                "file_path": "results\\firstRealTest_1\\TagPrey\\TagPrey-2499982.onnx",
+                "reward": -138.35776353379092,
+                "creation_time": 1683967439.8398147,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagPrey\\TagPrey-2499982.pt"
+                ]
+            },
+            {
+                "steps": 2500046,
+                "file_path": "results\\firstRealTest_1\\TagPrey\\TagPrey-2500046.onnx",
+                "reward": -138.35776353379092,
+                "creation_time": 1683967440.2541707,
+                "auxillary_file_paths": [
+                    "results\\firstRealTest_1\\TagPrey\\TagPrey-2500046.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2500046,
+            "file_path": "results\\firstRealTest_1\\TagPrey.onnx",
+            "reward": -138.35776353379092,
+            "creation_time": 1683967440.2541707,
+            "auxillary_file_paths": [
+                "results\\firstRealTest_1\\TagPrey\\TagPrey-2500046.pt"
             ]
         }
     },
