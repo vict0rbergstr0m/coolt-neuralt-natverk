@@ -78,8 +78,11 @@ public abstract class TagAgent : Agent
         
         endEpisode = false;
         ClearDetections();
+        OnBegin();
     }
     
+    public virtual void OnBegin(){}
+
     public override void CollectObservations(VectorSensor sensor)
     {
         for(int i = 0; i < rayCount; i++)

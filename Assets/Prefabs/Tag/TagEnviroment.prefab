@@ -511,7 +511,7 @@ MonoBehaviour:
     minScale: {x: 0.2, y: 1, z: 0.2}
     maxScale: {x: 3, y: 5, z: 3}
   arenaDimensions: {x: 50, y: 0, z: 50}
-  n_Obstacles: 64
+  n_Obstacles: 10
 --- !u!1 &1862331717400004774
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +624,7 @@ PrefabInstance:
     - target: {fileID: 1379810529200516427, guid: af0cb68e35de1b54492fa76c5a8594a0,
         type: 3}
       propertyPath: m_BrainParameters.NumStackedVectorObservations
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2060787652410470437, guid: af0cb68e35de1b54492fa76c5a8594a0,
         type: 3}
@@ -769,7 +769,7 @@ PrefabInstance:
     - target: {fileID: 7615357618512714025, guid: df960e8418ab9544c8fe428f3a4f1cde,
         type: 3}
       propertyPath: m_BrainParameters.NumStackedVectorObservations
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9149086401057951909, guid: df960e8418ab9544c8fe428f3a4f1cde,
         type: 3}
