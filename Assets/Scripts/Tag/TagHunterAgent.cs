@@ -24,7 +24,7 @@ public class TagHunterAgent : TagAgent
     {
         foreach(var ray in detections)
         {
-            if(ray.objectId != -1 && ray.objectId != teamId) //if not wall and from other team
+            if(ray.objectId > 0 && ray.objectId != teamId) //if not wall and from other team
             {
                 if(ray.distance < catchDistance) //if close enough
                 {

@@ -1,0 +1,123 @@
+{
+    "TagHunter": {
+        "checkpoints": [
+            {
+                "steps": 1999940,
+                "file_path": "results\\TagObstacles\\TagHunter\\TagHunter-1999940.onnx",
+                "reward": -184.20332940419516,
+                "creation_time": 1683972136.886178,
+                "auxillary_file_paths": [
+                    "results\\TagObstacles\\TagHunter\\TagHunter-1999940.pt"
+                ]
+            },
+            {
+                "steps": 2249959,
+                "file_path": "results\\TagObstacles\\TagHunter\\TagHunter-2249959.onnx",
+                "reward": -100.02399883270263,
+                "creation_time": 1683972406.2140365,
+                "auxillary_file_paths": [
+                    "results\\TagObstacles\\TagHunter\\TagHunter-2249959.pt"
+                ]
+            },
+            {
+                "steps": 2499998,
+                "file_path": "results\\TagObstacles\\TagHunter\\TagHunter-2499998.onnx",
+                "reward": -199.97998809814453,
+                "creation_time": 1683972700.93671,
+                "auxillary_file_paths": [
+                    "results\\TagObstacles\\TagHunter\\TagHunter-2499998.pt"
+                ]
+            },
+            {
+                "steps": 2749945,
+                "file_path": "results\\TagObstacles\\TagHunter\\TagHunter-2749945.onnx",
+                "reward": -111.58666737874348,
+                "creation_time": 1683972982.5431154,
+                "auxillary_file_paths": [
+                    "results\\TagObstacles\\TagHunter\\TagHunter-2749945.pt"
+                ]
+            },
+            {
+                "steps": 2940397,
+                "file_path": "results\\TagObstacles\\TagHunter\\TagHunter-2940397.onnx",
+                "reward": -148.8933245340983,
+                "creation_time": 1683973259.1181996,
+                "auxillary_file_paths": [
+                    "results\\TagObstacles\\TagHunter\\TagHunter-2940397.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2940397,
+            "file_path": "results\\TagObstacles\\TagHunter.onnx",
+            "reward": -148.8933245340983,
+            "creation_time": 1683973259.1181996,
+            "auxillary_file_paths": [
+                "results\\TagObstacles\\TagHunter\\TagHunter-2940397.pt"
+            ]
+        }
+    },
+    "TagPrey": {
+        "checkpoints": [
+            {
+                "steps": 1999954,
+                "file_path": "results\\TagObstacles\\TagPrey\\TagPrey-1999954.onnx",
+                "reward": 21.336663643519085,
+                "creation_time": 1683972136.4437985,
+                "auxillary_file_paths": [
+                    "results\\TagObstacles\\TagPrey\\TagPrey-1999954.pt"
+                ]
+            },
+            {
+                "steps": 2249943,
+                "file_path": "results\\TagObstacles\\TagPrey\\TagPrey-2249943.onnx",
+                "reward": 5.219995816548665,
+                "creation_time": 1683972405.8987658,
+                "auxillary_file_paths": [
+                    "results\\TagObstacles\\TagPrey\\TagPrey-2249943.pt"
+                ]
+            },
+            {
+                "steps": 2499970,
+                "file_path": "results\\TagObstacles\\TagPrey\\TagPrey-2499970.onnx",
+                "reward": null,
+                "creation_time": 1683972700.6314476,
+                "auxillary_file_paths": [
+                    "results\\TagObstacles\\TagPrey\\TagPrey-2499970.pt"
+                ]
+            },
+            {
+                "steps": 2749950,
+                "file_path": "results\\TagObstacles\\TagPrey\\TagPrey-2749950.onnx",
+                "reward": -128.2999947865804,
+                "creation_time": 1683972982.2213395,
+                "auxillary_file_paths": [
+                    "results\\TagObstacles\\TagPrey\\TagPrey-2749950.pt"
+                ]
+            },
+            {
+                "steps": 2940518,
+                "file_path": "results\\TagObstacles\\TagPrey\\TagPrey-2940518.onnx",
+                "reward": 29.562494218349457,
+                "creation_time": 1683973259.4649975,
+                "auxillary_file_paths": [
+                    "results\\TagObstacles\\TagPrey\\TagPrey-2940518.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2940518,
+            "file_path": "results\\TagObstacles\\TagPrey.onnx",
+            "reward": 29.562494218349457,
+            "creation_time": 1683973259.4649975,
+            "auxillary_file_paths": [
+                "results\\TagObstacles\\TagPrey\\TagPrey-2940518.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.0.0+cu118"
+    }
+}

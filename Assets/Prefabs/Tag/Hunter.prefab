@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4800028034871207296}
   m_Layer: 0
   m_Name: Hunter
-  m_TagString: Untagged
+  m_TagString: agent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: TagHunter
-  TeamId: 1
+  TeamId: 2
   m_UseChildSensors: 0
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
@@ -84,14 +84,14 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 10000
-  teamId: 1
+  teamId: 2
   visionMask:
     serializedVersion: 2
     m_Bits: 1
-  startArea: {x: 20, y: 0, z: 20}
+  startArea: {x: 50, y: 0, z: 50}
   fov: 90
   rayCount: 25
-  visionDistance: 20
+  visionDistance: 35
   movement: {fileID: 5160989014338681570}
   catchDistance: 1.5
 --- !u!114 &4189504574316495692

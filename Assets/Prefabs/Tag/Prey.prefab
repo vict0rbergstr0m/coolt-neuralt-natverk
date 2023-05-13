@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 8723046098862435616}
   m_Layer: 0
   m_Name: Prey
-  m_TagString: Untagged
+  m_TagString: agent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: TagPrey
-  TeamId: 0
+  TeamId: 1
   m_UseChildSensors: 0
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
@@ -503,14 +503,14 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 10000
-  teamId: 0
+  teamId: 1
   visionMask:
     serializedVersion: 2
     m_Bits: 1
-  startArea: {x: 20, y: 0, z: 20}
+  startArea: {x: 50, y: 0, z: 50}
   fov: 90
   rayCount: 25
-  visionDistance: 20
+  visionDistance: 35
   movement: {fileID: 380448172232886449}
 --- !u!114 &6017440995819356028
 MonoBehaviour:

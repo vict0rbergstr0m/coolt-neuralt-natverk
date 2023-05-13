@@ -17,7 +17,7 @@ behaviors:
     network_settings:
       normalize: false
       hidden_units: 256
-      num_layers: 15
+      num_layers: 24
       vis_encode_type: simple
       memory: null
       goal_conditioning_type: hyper
@@ -29,7 +29,7 @@ behaviors:
         network_settings:
           normalize: false
           hidden_units: 256
-          num_layers: 15
+          num_layers: 24
           vis_encode_type: simple
           memory: null
           goal_conditioning_type: hyper
@@ -37,7 +37,7 @@ behaviors:
     init_path: null
     keep_checkpoints: 5
     checkpoint_interval: 250000
-    max_steps: 2500000
+    max_steps: 5000000
     time_horizon: 64
     summary_freq: 50000
     threaded: false
@@ -60,7 +60,7 @@ behaviors:
     network_settings:
       normalize: false
       hidden_units: 256
-      num_layers: 15
+      num_layers: 24
       vis_encode_type: simple
       memory: null
       goal_conditioning_type: hyper
@@ -72,7 +72,7 @@ behaviors:
         network_settings:
           normalize: false
           hidden_units: 256
-          num_layers: 15
+          num_layers: 24
           vis_encode_type: simple
           memory: null
           goal_conditioning_type: hyper
@@ -80,7 +80,7 @@ behaviors:
     init_path: null
     keep_checkpoints: 5
     checkpoint_interval: 250000
-    max_steps: 2500000
+    max_steps: 5000000
     time_horizon: 64
     summary_freq: 50000
     threaded: false

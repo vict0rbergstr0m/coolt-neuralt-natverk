@@ -8,7 +8,7 @@ using Unity.MLAgents.Policies;
 
 public abstract class TagAgent : Agent
 {
-
+    //TODO: instead of calling endEpisode, send a message to some training Manager that, in turn, calls endEpisode for both agents, generates a new level and sets their spawn points
     public struct RayDetector
     {
         public int objectId; //-1 is wall, 0,1,2... is agent teams
@@ -33,11 +33,47 @@ public abstract class TagAgent : Agent
         detections = new RayDetector[rayCount];
     }
 
-    public override void OnEpisodeBegin()
+    public override void OnEpisodeBegin()//
     {
         //TODO: the position should be set by playground generator, when setting position make sure you are not ontop of obstacle or other agent
-        Vector3 pos = new Vector3(Random.Range(-startArea.x,startArea.x)/2,Random.Range(-startArea.y,startArea.y)/2,Random.Range(-startArea.z,startArea.z)/2);
-        transform.localPosition = pos;
+        Vector3 pos = new Vector3(Random.Range(-startArea.x,startArea.x)/2,0,Random.Range(-startArea.z,startArea.z)/2);
+        bool invalidPosition = true;
+        float radius = 1.5f;
+        int tryCounter = 0;
+        while(invalidPosition) //retry spawn position until we hit somthing that isnt an obstacle or other agent
+        {
+            pos = new Vector3(Random.Range(-startArea.x,startArea.x)/2,0,Random.Range(-startArea.z,startArea.z)/2);
+            RaycastHit[] hits = Physics.SphereCastAll(pos+Vector3.up*5, radius, Vector3.down, 50, visionMask);
+            
+            if(hits.Length > 0)
+            {
+                invalidPosition = false;
+                foreach(var hit in hits)
+                {
+                    if(hit.transform.tag == "obstacle" || hit.transform.tag == "agent")
+                    {
+                        Debug.Log("retrying position", hit.transform);
+                        invalidPosition = true;
+                        break;
+                    }
+                }
+            }else
+            {
+                invalidPosition = true;
+            }
+            tryCounter++;
+
+            if(tryCounter > 5000)
+            {
+                Debug.LogWarning("Could not find spawn position", this);
+                break;
+            }
+        }
+        pos.y = 0;
+        movement.rigid.velocity = Vector3.zero;
+        movement.rigid.position = pos;
+        movement.SetTargetMovement(Vector3.zero);
+        
         
         endEpisode = false;
         ClearDetections();
@@ -76,7 +112,7 @@ public abstract class TagAgent : Agent
         RaycastHit hit = new RaycastHit();
         Physics.Raycast(origin,direction, out hit, visionDistance,visionMask); 
         RayDetector detector = new RayDetector();
-        detector.objectId = -1;
+        detector.objectId = 0;
         detector.distance = visionDistance;
         TagAgent agent;
         Debug.DrawRay(origin, direction*detector.distance,Color.red);
@@ -88,7 +124,7 @@ public abstract class TagAgent : Agent
             if(hit.transform.TryGetComponent<TagAgent>(out agent))
             {
                 Debug.DrawRay(origin, direction*detector.distance,Color.blue);
-                detector.objectId = agent.teamId;
+                detector.objectId = agent.teamId*10;//multiply with 10 to get a bigger difference in values, hopfully making it easier for netowkr to distinguis objects
             }
         }
         return detector;

@@ -12,7 +12,7 @@ public class TagPreyAgent : TagAgent
         float moveX = actions.ContinuousActions[0];
         float moveY = actions.ContinuousActions[1];
 
-        Vector3 velocity = new Vector3(moveX,0,moveY).normalized; 
+        Vector3 velocity = new Vector3(0,0,moveY).normalized; 
         movement.SetTargetMovement(velocity);
 
         movement.setTargetAngleVel(moveX);
