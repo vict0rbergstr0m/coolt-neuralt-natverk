@@ -37,12 +37,14 @@ public abstract class TagAgent : Agent
     {
         //TODO: the position should be set by playground generator, when setting position make sure you are not ontop of obstacle or other agent
         Vector3 pos = new Vector3(Random.Range(-startArea.x,startArea.x)/2,0,Random.Range(-startArea.z,startArea.z)/2);
+        pos = transform.TransformPoint(pos);
         bool invalidPosition = true;
         float radius = 1.5f;
         int tryCounter = 0;
         while(invalidPosition) //retry spawn position until we hit somthing that isnt an obstacle or other agent
         {
             pos = new Vector3(Random.Range(-startArea.x,startArea.x)/2,0,Random.Range(-startArea.z,startArea.z)/2);
+            pos = transform.TransformPoint(pos); //ensure we are shooting ray in world space
             RaycastHit[] hits = Physics.SphereCastAll(pos+Vector3.up*5, radius, Vector3.down, 50, visionMask);
             
             if(hits.Length > 0)
@@ -52,7 +54,6 @@ public abstract class TagAgent : Agent
                 {
                     if(hit.transform.tag == "obstacle" || hit.transform.tag == "agent")
                     {
-                        Debug.Log("retrying position", hit.transform);
                         invalidPosition = true;
                         break;
                     }
