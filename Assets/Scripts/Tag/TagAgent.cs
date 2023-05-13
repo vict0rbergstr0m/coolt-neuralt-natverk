@@ -144,7 +144,7 @@ public abstract class TagAgent : Agent
     }
 
     void Update() {
-        if(endEpisode)
+        if(endEpisode) //if one ends, both agents in the same arean should end, send an event to ArenaManager?
         {
             EndEpisode();
         }

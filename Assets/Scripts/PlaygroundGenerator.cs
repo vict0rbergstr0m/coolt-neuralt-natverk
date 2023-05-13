@@ -11,7 +11,7 @@ public class Obstacle
     public Vector3 minScale = new Vector3(1,1,1);
     public Vector3 maxScale = new Vector3(1,1,1);
 }
-
+//TODO: could be good to gradually add more obstacles every iteration, so the agents have a chance to find eachother in the begining
 public class PlaygroundGenerator : MonoBehaviour
 {
     public Obstacle[] obstacles;

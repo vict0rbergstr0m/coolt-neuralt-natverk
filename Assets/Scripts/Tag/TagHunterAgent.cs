@@ -20,12 +20,15 @@ public class TagHunterAgent : TagAgent
         AddReward(-Time.deltaTime);
     }
 
+    float totalSeeReward = 0;
     public override void OnObservation()
     {
+        float seeingTargetReward = 10.0f;
         foreach(var ray in detections)
         {
             if(ray.objectId > 0 && ray.objectId != teamId) //if not wall and from other team
             {
+                totalSeeReward += (Time.deltaTime*5.0f*seeingTargetReward);
                 if(ray.distance < catchDistance) //if close enough
                 {
                     ray.hit.GetComponent<TagPreyAgent>().OnGotCaught(); //todo: if target is on another team but still a hunter things will break.
@@ -53,7 +56,7 @@ public class TagHunterAgent : TagAgent
 
         ClearDetections();
         Debug.Log("Won!", this);
-        AddReward(200f);
+        AddReward(500f + Mathf.Min(totalSeeReward,200f));
         RecursionSafeEndEpisode();
     }
 }
