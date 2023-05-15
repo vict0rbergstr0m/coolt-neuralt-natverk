@@ -850,6 +850,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d768b99cddba334dbe1769c07aff9eb, type: 3}
+--- !u!1 &1065502924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1862331715898337838, guid: 1d768b99cddba334dbe1769c07aff9eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1862331717043590416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1065502926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065502924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1118f022a6ef1a9438ad089bd0f6b95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1174804477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1544,7 +1562,7 @@ PrefabInstance:
     - target: {fileID: 1862331717380781097, guid: 1d768b99cddba334dbe1769c07aff9eb,
         type: 3}
       propertyPath: n_Obstacles
-      value: 64
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 4683233208849356419, guid: 1d768b99cddba334dbe1769c07aff9eb,
         type: 3}
