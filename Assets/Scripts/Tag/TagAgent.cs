@@ -17,6 +17,7 @@ public abstract class TagAgent : Agent
     }
 
     public int teamId = 0;
+    private TagMatchManager manager;
     [SerializeField] private LayerMask visionMask;
     [SerializeField] private Vector3 startArea = new Vector3(20f,0,20f);
     [SerializeField] private float fov = 90;
@@ -33,6 +34,10 @@ public abstract class TagAgent : Agent
         detections = new RayDetector[rayCount];
     }
 
+    public void AssignMatchManager(TagMatchManager manager)
+    {
+        this.manager = manager;
+    }
     public override void OnEpisodeBegin()//
     {
         //TODO: the position should be set by playground generator, when setting position make sure you are not ontop of obstacle or other agent
@@ -163,7 +168,7 @@ public abstract class TagAgent : Agent
     {
         Debug.Log("Ouch! hit wall.", this);
         AddReward(-200f);
-        EndEpisode();
+        manager.RequestEndGame();
     }
 
 }

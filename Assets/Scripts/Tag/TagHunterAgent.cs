@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -8,6 +9,7 @@ using Unity.MLAgents.Sensors;
 public class TagHunterAgent : TagAgent
 {
     [SerializeField] private float catchDistance = 1.5f;
+    [SerializeField] private int episodeCounter = 0;
     public override void OnActionReceived(ActionBuffers actions)
     {
         float moveX = actions.ContinuousActions[0];
@@ -23,12 +25,14 @@ public class TagHunterAgent : TagAgent
     public override void OnBegin()
     {
         totalSeeReward = 0;
+        episodeCounter += 1;
+        print(episodeCounter);
     }
 
     float totalSeeReward = 0;
     public override void OnObservation()
     {
-        float seeingTargetReward = 10.0f;
+        float seeingTargetReward = 50.0f/(float)Math.Log10(episodeCounter);
         foreach(var ray in detections)
         {
             if(ray.objectId > 0 && ray.objectId != teamId) //if not wall and from other team

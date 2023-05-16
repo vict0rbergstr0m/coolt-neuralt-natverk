@@ -10,7 +10,10 @@ public class TagMatchManager : MonoBehaviour
     [SerializeField] private TagAgent[] agents;
     [SerializeField] private PlaygroundGenerator generator;
     private void Start() { //need to give all agents a reference to this class/component
-        
+        foreach (var agent in agents)
+        {
+            agent.AssignMatchManager(this);
+        }
     }
 
     //THESE ARE EXAMPLE FUNCTIONS THAT MIGHT WORK WELL
@@ -39,6 +42,10 @@ public class TagMatchManager : MonoBehaviour
     {
         yield return null;
         endGame = false;
+        foreach (var agent in agents)
+        {
+            agent.EndEpisode();
+        }
         //call end game for all agents
     }
 
