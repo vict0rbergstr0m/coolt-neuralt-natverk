@@ -637,8 +637,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2fecb04c65284f94e95973fc82916023,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1379810529200516427, guid: af0cb68e35de1b54492fa76c5a8594a0,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
@@ -708,6 +707,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hunter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5713397999182496167, guid: af0cb68e35de1b54492fa76c5a8594a0,
+        type: 3}
+      propertyPath: MaxStep
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5713397999182496167, guid: af0cb68e35de1b54492fa76c5a8594a0,
         type: 3}
@@ -799,6 +803,11 @@ PrefabInstance:
     - target: {fileID: 4606320517273161061, guid: df960e8418ab9544c8fe428f3a4f1cde,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519100341737420220, guid: df960e8418ab9544c8fe428f3a4f1cde,
+        type: 3}
+      propertyPath: MaxStep
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7615357618512714025, guid: df960e8418ab9544c8fe428f3a4f1cde,
