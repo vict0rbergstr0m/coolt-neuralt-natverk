@@ -16,8 +16,9 @@ public abstract class TagAgent : Agent
         public Transform hit;
     }
 
+    public bool alive = false;
     public int teamId = 0;
-    private TagMatchManager manager;
+    public TagMatchManager manager {get; private set;}
     [SerializeField] private LayerMask visionMask;
     [SerializeField] private Vector3 startArea = new Vector3(20f,0,20f);
     [SerializeField] private float fov = 90;
@@ -40,47 +41,8 @@ public abstract class TagAgent : Agent
     }
     public override void OnEpisodeBegin()//
     {
-        //TODO: the position should be set by playground generator, when setting position make sure you are not ontop of obstacle or other agent
-        Vector3 pos = new Vector3(Random.Range(-startArea.x,startArea.x)/2,0,Random.Range(-startArea.z,startArea.z)/2);
-        pos = transform.TransformPoint(pos);
-        bool invalidPosition = true;
-        float radius = 1.5f;
-        int tryCounter = 0;
-        while(invalidPosition) //retry spawn position until we hit somthing that isnt an obstacle or other agent
-        {
-            pos = new Vector3(Random.Range(-startArea.x,startArea.x)/2,0,Random.Range(-startArea.z,startArea.z)/2);
-            pos = transform.TransformPoint(pos); //ensure we are shooting ray in world space
-            RaycastHit[] hits = Physics.SphereCastAll(pos+Vector3.up*5, radius, Vector3.down, 50, visionMask);
-            
-            if(hits.Length > 0)
-            {
-                invalidPosition = false;
-                foreach(var hit in hits)
-                {
-                    if(hit.transform.tag == "obstacle" || hit.transform.tag == "agent")
-                    {
-                        invalidPosition = true;
-                        break;
-                    }
-                }
-            }else
-            {
-                invalidPosition = true;
-            }
-            tryCounter++;
+        manager.RequestBeginMatch();
 
-            if(tryCounter > 5000)
-            {
-                Debug.LogWarning("Could not find spawn position", this);
-                break;
-            }
-        }
-        pos.y = 0;
-        movement.rigid.velocity = Vector3.zero;
-        movement.rigid.position = pos;
-        movement.SetTargetMovement(Vector3.zero);
-        
-        
         endEpisode = false;
         ClearDetections();
         OnBegin();
@@ -166,6 +128,12 @@ public abstract class TagAgent : Agent
 
     public void OnHitWall()
     {
+        if(!alive)
+        {
+            return;
+        }
+
+        alive = false;
         Debug.Log("Ouch! hit wall.", this);
         AddReward(-200f);
         manager.RequestEndGame();
