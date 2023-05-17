@@ -20,7 +20,6 @@ public abstract class TagAgent : Agent
     public int teamId = 0;
     public TagMatchManager manager {get; private set;}
     [SerializeField] private LayerMask visionMask;
-    [SerializeField] private Vector3 startArea = new Vector3(20f,0,20f);
     [SerializeField] private float fov = 90;
     [Tooltip("for each ray add 2 to Observations, distance and tag for each ray")]
     [SerializeField] private int rayCount = 15;
