@@ -35,7 +35,7 @@ public class TagHunterAgent : TagAgent
             if(ray.objectId > 0 && ray.objectId != teamId) //if not wall and from other team
             {
                 totalSeeReward += (Time.deltaTime*5.0f*seeingTargetReward);
-                if(totalSeeReward < 1000)
+                if(totalSeeReward < 1000/ (float)Math.Log10(manager.episodeCounter))
                 {
                     AddReward((Time.deltaTime*5.0f*seeingTargetReward));
                 }
@@ -60,7 +60,10 @@ public class TagHunterAgent : TagAgent
             OnHitWall();
         }
     }
-
+    public void timeOver()
+    {
+        AddReward(-200f);
+    }
     public void OnCaughtTarget(TagPreyAgent prey)
     {
         if(endEpisode)
