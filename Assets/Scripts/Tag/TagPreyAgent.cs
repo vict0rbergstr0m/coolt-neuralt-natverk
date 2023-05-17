@@ -34,10 +34,12 @@ public class TagPreyAgent : TagAgent
             return;
         }
 
+        alive = false;
         ClearDetections();
         Debug.Log("Lost!", this);
         AddReward(-200f);
-        RecursionSafeEndEpisode();
+        manager.RequestEndGame();
+       // RecursionSafeEndEpisode();
     }
 
 }

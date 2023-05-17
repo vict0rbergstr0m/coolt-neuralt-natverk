@@ -147,7 +147,11 @@ MonoBehaviour:
   agents:
   - {fileID: 2058757055537429103}
   - {fileID: 1243378311647741286}
-  generator: {fileID: 0}
+  generator: {fileID: 1862331717380781097}
+  spawnObstacleMask:
+    serializedVersion: 2
+    m_Bits: 1
+  arenaDimensions: {x: 50, y: 1, z: 50}
 --- !u!1 &1862331716021327738
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,8 +531,6 @@ MonoBehaviour:
     randomRotation: {x: 0, y: 360, z: 0}
     minScale: {x: 0.2, y: 1, z: 0.2}
     maxScale: {x: 3, y: 5, z: 3}
-  arenaDimensions: {x: 50, y: 0, z: 50}
-  n_Obstacles: 50
 --- !u!1 &1862331717400004774
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,6 +712,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5713397999182496167, guid: af0cb68e35de1b54492fa76c5a8594a0,
         type: 3}
+      propertyPath: alive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5713397999182496167, guid: af0cb68e35de1b54492fa76c5a8594a0,
+        type: 3}
       propertyPath: MaxStep
       value: 0
       objectReference: {fileID: 0}
@@ -803,6 +810,11 @@ PrefabInstance:
     - target: {fileID: 4606320517273161061, guid: df960e8418ab9544c8fe428f3a4f1cde,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519100341737420220, guid: df960e8418ab9544c8fe428f3a4f1cde,
+        type: 3}
+      propertyPath: alive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7519100341737420220, guid: df960e8418ab9544c8fe428f3a4f1cde,

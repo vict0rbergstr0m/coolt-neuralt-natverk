@@ -4,30 +4,108 @@ using UnityEngine;
 
 public class TagMatchManager : MonoBehaviour
 {
-    //TODO: when an agent dies, it should send an event to this class, and then this class calls end game for both agents
-    //TODO: this class should also handle all spawning and level generation etc.
-
+    public int episodeCounter = 0; //should probably be private set, but i want to see it in inspector
     [SerializeField] private TagAgent[] agents;
     [SerializeField] private PlaygroundGenerator generator;
+    [SerializeField] private LayerMask spawnObstacleMask;
+    [SerializeField] private Vector3 arenaDimensions = new Vector3(20,1,20); 
+
+    [SerializeField] private int currentObstacleCount = 0; //doesnt have to be visable, but i want it to for debug reasons
+    [SerializeField] private Vector2 startEndObstacleCount = new Vector2(10,200);
+    [SerializeField] private int obstacleIncrementEnd = 1000000;
+
     private void Start() { //need to give all agents a reference to this class/component
         foreach (var agent in agents)
         {
             agent.AssignMatchManager(this);
         }
+        episodeCounter = 0;
     }
 
     //THESE ARE EXAMPLE FUNCTIONS THAT MIGHT WORK WELL
-    public void OnBeginMatch()
+    bool beginMatch = false;
+    public void RequestBeginMatch()
     {
-        generator.GenerateLevel();
+        beginMatch = true;
+    }
+
+    IEnumerator OnBeginMatchIE;
+    IEnumerator OnBeginMatch() //THIS IS NEVER CALLED LEL
+    {
+        yield return null;
+        beginMatch = false;
+
+        currentObstacleCount = (int)Mathf.Lerp(startEndObstacleCount.x,startEndObstacleCount.y,(float)episodeCounter/(float)obstacleIncrementEnd);
+        currentObstacleCount = (int)Mathf.Clamp(currentObstacleCount,0,startEndObstacleCount.y);
+        
+        generator.GenerateLevel(currentObstacleCount, arenaDimensions);
         //"Spawn all agents"
+        Debug.Log("begin match plz");
+        foreach(var agent  in agents)
+        {
+            SpawnAgent(agent);
+        }
+
+        yield return null;
+        episodeCounter += 1;
+        OnBeginMatchIE = null;
+    }
+
+    void SpawnAgent(TagAgent agent)
+    {
+        Vector3 pos = new Vector3(Random.Range(-arenaDimensions.x,arenaDimensions.x)/2,0,Random.Range(-arenaDimensions.z,arenaDimensions.z)/2);
+        pos = agent.transform.TransformPoint(pos);
+        bool invalidPosition = true;
+        float radius = 1.5f;
+        int tryCounter = 0;
+        while(invalidPosition) //retry spawn position until we hit somthing that isnt an obstacle or other agent
+        {
+            pos = new Vector3(Random.Range(-arenaDimensions.x,arenaDimensions.x)/2,0,Random.Range(-arenaDimensions.z,arenaDimensions.z)/2);
+            pos = agent.transform.TransformPoint(pos); //ensure we are shooting ray in world space
+            RaycastHit[] hits = Physics.SphereCastAll(pos+Vector3.up*5, radius, Vector3.down, 50, spawnObstacleMask);
+            
+            if(hits.Length > 0)
+            {
+                invalidPosition = false;
+                foreach(var hit in hits)
+                {
+                    if(hit.transform.tag == "obstacle" || hit.transform.tag == "agent")
+                    {
+                        invalidPosition = true;
+                        break;
+                    }
+                }
+            }else
+            {
+                invalidPosition = true;
+            }
+            tryCounter++;
+
+            if(tryCounter > 5000)
+            {
+                Debug.LogWarning("Could not find spawn position", this);
+                break;
+            }
+        }
+        pos.y = 0;
+        agent.movement.rigid.velocity = Vector3.zero;
+        agent.movement.rigid.position = pos;
+        agent.movement.SetTargetMovement(Vector3.zero);
+        agent.alive = true;
     }
 
     void Update() 
     {
-        if(endGame) //EndGame cant be called from certain functions
+        if(beginMatch && OnBeginMatchIE == null)
         {
-            StartCoroutine(EndGame());
+            OnBeginMatchIE = OnBeginMatch();
+            StartCoroutine(OnBeginMatchIE);
+        }
+
+        if(endGame && endGameIE == null) //EndGame cant be called from certain functions
+        {
+            endGameIE = EndGame();
+            StartCoroutine(endGameIE);
         }
     }
 
@@ -38,6 +116,7 @@ public class TagMatchManager : MonoBehaviour
         endGame = true;
     }
 
+    IEnumerator endGameIE;
     IEnumerator EndGame()//this ensures we only call EndGame once in one frame;
     {
         yield return null;
@@ -46,7 +125,8 @@ public class TagMatchManager : MonoBehaviour
         {
             agent.EndEpisode();
         }
-        //call end game for all agents
+        yield return null;
+        endGameIE = null;
     }
 
 }

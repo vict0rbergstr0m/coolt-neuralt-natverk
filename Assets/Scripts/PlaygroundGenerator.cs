@@ -15,16 +15,16 @@ public class Obstacle
 public class PlaygroundGenerator : MonoBehaviour
 {
     public Obstacle[] obstacles;
-    public Vector3 arenaDimensions = new Vector3(20,1,20); 
-    public int n_Obstacles = 10;
-
-    private void Start() {
-        GenerateLevel();
-    }
-
-    public void GenerateLevel()
+    private List<GameObject> obstacleObjects = new List<GameObject>(); //could use a pool but i dont care...
+    public void GenerateLevel(int numberOfObstacles, Vector3 arenaDimensions)
     {
-        for(int i = 0; i < n_Obstacles; i++)
+        foreach(var ob in obstacleObjects)
+        {
+            Destroy(ob);
+        }
+        obstacleObjects.Clear();
+
+        for(int i = 0; i < numberOfObstacles; i++)
         {
             int randI = Random.Range(0,obstacles.Length);
             GameObject obj = Instantiate(obstacles[randI].prefab);
@@ -39,6 +39,7 @@ public class PlaygroundGenerator : MonoBehaviour
             Random.Range(obstacles[randI].minScale.y,obstacles[randI].maxScale.y),
             Random.Range(obstacles[randI].minScale.z,obstacles[randI].maxScale.z));
             obj.transform.localScale = randomScale;
+            obstacleObjects.Add(obj);
         }
     }
 }

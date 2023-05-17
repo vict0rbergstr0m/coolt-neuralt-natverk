@@ -9,7 +9,6 @@ using Unity.MLAgents.Sensors;
 public class TagHunterAgent : TagAgent
 {
     [SerializeField] private float catchDistance = 1.5f;
-    [SerializeField] private int episodeCounter = 0;
     public override void OnActionReceived(ActionBuffers actions)
     {
         float moveX = actions.ContinuousActions[0];
@@ -25,14 +24,12 @@ public class TagHunterAgent : TagAgent
     public override void OnBegin()
     {
         totalSeeReward = 0;
-        episodeCounter += 1;
-        print(episodeCounter);
     }
 
     float totalSeeReward = 0;
     public override void OnObservation()
     {
-        float seeingTargetReward = 50.0f/(float)Math.Log10(episodeCounter);
+        float seeingTargetReward = 50.0f/(float)Math.Log10(manager.episodeCounter);
         foreach(var ray in detections)
         {
             if(ray.objectId > 0 && ray.objectId != teamId) //if not wall and from other team
@@ -42,11 +39,15 @@ public class TagHunterAgent : TagAgent
                 {
                     AddReward((Time.deltaTime*5.0f*seeingTargetReward));
                 }
-                if(ray.distance < catchDistance) //if close enough
+
+                TagPreyAgent prey;
+                if(ray.distance < catchDistance && ray.hit.TryGetComponent<TagPreyAgent>(out prey)) //if close enough and target is prey
                 {
-                    ray.hit.GetComponent<TagPreyAgent>().OnGotCaught(); //todo: if target is on another team but still a hunter things will break.
-                    OnCaughtTarget();
-                    break;
+                    if(prey.alive)
+                    {
+                        OnCaughtTarget(prey);
+                        break;
+                    }
                 }
             }
         }
@@ -60,16 +61,18 @@ public class TagHunterAgent : TagAgent
         }
     }
 
-    public void OnCaughtTarget()
+    public void OnCaughtTarget(TagPreyAgent prey)
     {
         if(endEpisode)
         {
             return;
         }
 
+        prey.OnGotCaught();
         ClearDetections();
         Debug.Log("Won!", this);
         AddReward(500f);
-        RecursionSafeEndEpisode();
+        manager.RequestEndGame();
+       // RecursionSafeEndEpisode();
     }
 }
