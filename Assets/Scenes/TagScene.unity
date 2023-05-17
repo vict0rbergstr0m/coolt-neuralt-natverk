@@ -1476,8 +1476,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1065502926, guid: 1d768b99cddba334dbe1769c07aff9eb, type: 3}
+      propertyPath: obstacleIncrementEnd
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065502926, guid: 1d768b99cddba334dbe1769c07aff9eb, type: 3}
       propertyPath: startEndObstacleCount.x
-      value: 80
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1065502926, guid: 1d768b99cddba334dbe1769c07aff9eb, type: 3}
       propertyPath: startEndObstacleCount.y
