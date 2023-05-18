@@ -153,9 +153,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   arenaDimensions: {x: 50, y: 1, z: 50}
-  currentObstacleCount: 0
-  startEndObstacleCount: {x: 10, y: 200}
-  obstacleIncrementEnd: 1000000
+  currentObstacleCount: 50
+  startEndObstacleCount: {x: 10, y: 80}
+  obstacleIncrementEnd: 640
+  maxGameTime: 40
 --- !u!1 &1862331716021327738
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +644,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2fecb04c65284f94e95973fc82916023,
+      objectReference: {fileID: 5022602860645237092, guid: 7084ecd015534b544ae38e9d29a7eaf9,
         type: 3}
     - target: {fileID: 1379810529200516427, guid: af0cb68e35de1b54492fa76c5a8594a0,
         type: 3}
@@ -830,6 +831,16 @@ PrefabInstance:
     - target: {fileID: 7519100341737420220, guid: df960e8418ab9544c8fe428f3a4f1cde,
         type: 3}
       propertyPath: MaxStep
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615357618512714025, guid: df960e8418ab9544c8fe428f3a4f1cde,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615357618512714025, guid: df960e8418ab9544c8fe428f3a4f1cde,
+        type: 3}
+      propertyPath: m_BehaviorType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7615357618512714025, guid: df960e8418ab9544c8fe428f3a4f1cde,
