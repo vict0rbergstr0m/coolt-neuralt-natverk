@@ -1135,6 +1135,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 567591590120136831, guid: 1d768b99cddba334dbe1769c07aff9eb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1862331715898337838, guid: 1d768b99cddba334dbe1769c07aff9eb,
         type: 3}
       propertyPath: m_Name
@@ -1198,6 +1203,16 @@ PrefabInstance:
     - target: {fileID: 1862331715898337839, guid: 1d768b99cddba334dbe1769c07aff9eb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862331717380781095, guid: 1d768b99cddba334dbe1769c07aff9eb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7097684073798277122, guid: 1d768b99cddba334dbe1769c07aff9eb,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1476,28 +1491,27 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1065502926, guid: 1d768b99cddba334dbe1769c07aff9eb, type: 3}
+      propertyPath: maxGameTime
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065502926, guid: 1d768b99cddba334dbe1769c07aff9eb, type: 3}
       propertyPath: startEndObstacleCount.x
-      value: 64
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1065502926, guid: 1d768b99cddba334dbe1769c07aff9eb, type: 3}
       propertyPath: startEndObstacleCount.y
-      value: 64
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1204510002341308915, guid: 1d768b99cddba334dbe1769c07aff9eb,
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 60a457a8ff62fe04f8cc34d8d7221bff,
+      objectReference: {fileID: 5022602860645237092, guid: b9a659153d76761468ba9d15ee6df925,
         type: 3}
     - target: {fileID: 1862331715898337838, guid: 1d768b99cddba334dbe1769c07aff9eb,
         type: 3}
       propertyPath: m_Name
       value: TagEnviroment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1862331715898337838, guid: 1d768b99cddba334dbe1769c07aff9eb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1862331715898337839, guid: 1d768b99cddba334dbe1769c07aff9eb,
         type: 3}
@@ -1554,11 +1568,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4683233208849356419, guid: 1d768b99cddba334dbe1769c07aff9eb,
-        type: 3}
-      propertyPath: m_Model
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 7b2b190ed23b45b48a8cd71b2319c833,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d768b99cddba334dbe1769c07aff9eb, type: 3}

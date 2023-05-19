@@ -13,6 +13,10 @@ public class TagMatchManager : MonoBehaviour
     [SerializeField] private int currentObstacleCount = 0; //doesnt have to be visable, but i want it to for debug reasons
     [SerializeField] private Vector2 startEndObstacleCount = new Vector2(10,200);
     [SerializeField] private int obstacleIncrementEnd = 1000000;
+    [SerializeField] private int maxGameTime = 40;
+    private float deltaTimer = 0;
+
+    //[SerializeField] private int maxGameTime = 60;
 
     private void Start() { //need to give all agents a reference to this class/component
         foreach (var agent in agents)
@@ -34,7 +38,7 @@ public class TagMatchManager : MonoBehaviour
     {
         yield return null;
         beginMatch = false;
-
+        deltaTimer = 0;
         currentObstacleCount = (int)Mathf.Lerp(startEndObstacleCount.x,startEndObstacleCount.y,(float)episodeCounter/(float)obstacleIncrementEnd);
         currentObstacleCount = (int)Mathf.Clamp(currentObstacleCount,0,startEndObstacleCount.y);
         
@@ -96,10 +100,24 @@ public class TagMatchManager : MonoBehaviour
 
     void Update() 
     {
-        if(beginMatch && OnBeginMatchIE == null)
+        deltaTimer += Time.deltaTime;
+        print(deltaTimer);
+        if (beginMatch && OnBeginMatchIE == null)
         {
             OnBeginMatchIE = OnBeginMatch();
             StartCoroutine(OnBeginMatchIE);
+        }
+        if(deltaTimer > maxGameTime)
+        {
+            foreach (var agent in agents)
+            {
+                TagPreyAgent prey;
+                TagHunterAgent hunter;
+                if (agent.TryGetComponent<TagPreyAgent>(out prey)) { prey.timeOver(); }
+                else if (agent.TryGetComponent<TagHunterAgent>(out hunter)) { hunter.timeOver(); }
+                //agent.timeOver();
+            }
+            RequestEndGame();
         }
 
         if(endGame && endGameIE == null) //EndGame cant be called from certain functions
@@ -107,6 +125,8 @@ public class TagMatchManager : MonoBehaviour
             endGameIE = EndGame();
             StartCoroutine(endGameIE);
         }
+
+
     }
 
     bool endGame = false;

@@ -26,7 +26,10 @@ public class TagPreyAgent : TagAgent
             OnHitWall();
         }
     }
-
+    public void timeOver()
+    {
+        AddReward(200f);
+    }
     public void OnGotCaught()
     {
         if(endEpisode)

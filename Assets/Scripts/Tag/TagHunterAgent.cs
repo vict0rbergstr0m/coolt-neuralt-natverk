@@ -60,7 +60,10 @@ public class TagHunterAgent : TagAgent
             OnHitWall();
         }
     }
-
+    public void timeOver()
+    {
+        AddReward(-200f);
+    }
     public void OnCaughtTarget(TagPreyAgent prey)
     {
         if(endEpisode)
