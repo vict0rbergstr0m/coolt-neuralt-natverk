@@ -29,7 +29,7 @@ public class PlaygroundGenerator : MonoBehaviour
             int randI = Random.Range(0,obstacles.Length);
             GameObject obj = Instantiate(obstacles[randI].prefab);
             obj.transform.SetParent(transform);
-            Vector3 pos = new Vector3(Random.Range(-arenaDimensions.x,arenaDimensions.x)/2,Random.Range(-arenaDimensions.y,arenaDimensions.y)/2,Random.Range(-arenaDimensions.z,arenaDimensions.z)/2);
+            Vector3 pos = new Vector3(Random.Range(-arenaDimensions.x,arenaDimensions.x)/2,0,Random.Range(-arenaDimensions.z,arenaDimensions.z)/2);
             obj.transform.localPosition = pos;
 
             Vector3 randomRot = new Vector3(obstacles[randI].randomRotation.x * Random.Range(0.0f,1.0f),obstacles[randI].randomRotation.y * Random.Range(0.0f,1.0f),obstacles[randI].randomRotation.z * Random.Range(0.0f,1.0f));
